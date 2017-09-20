@@ -1,0 +1,2 @@
+# PopupWindow
+popupWindow封装，通过RecyclerView来设置显示的内容是横屏还是竖屏
