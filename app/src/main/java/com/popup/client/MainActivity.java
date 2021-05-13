@@ -1,10 +1,14 @@
 package com.popup.client;
 
-import android.support.v7.app.AppCompatActivity;
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.PopupWindow;
 
+import com.popup.client.bubbleview.BubblePopupWindow;
+import com.popup.client.bubbleview.BubbleStyle;
+import com.popup.client.bubbleview.LiveHint;
 import com.popup.client.ui.AbsPopupRecyclerView;
 import com.popup.client.ui.PopupHorizontalView;
 import com.popup.client.ui.PopupVerticalView;
@@ -13,7 +17,7 @@ import com.popup.client.util.MenuTypeItem;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity {
 
     /**
      * VIew
@@ -26,15 +30,24 @@ public class MainActivity extends AppCompatActivity {
 
     private AbsPopupRecyclerView horizontalView;
     private ArrayList<MenuTypeItem> horizontalItem = new ArrayList<>();
+    private BubblePopupWindow popupWindow;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
         vertical = (Button) findViewById(R.id.button1);
         horizontal = (Button) findViewById(R.id.button2);
+        popupWindow = LiveHint.showSimpleHint(vertical, R.string.app_name,
+                BubbleStyle.ArrowDirection.Down);
+
+        popupWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
+            @Override
+            public void onDismiss() {
+
+            }
+        });
         initData();
         initListener();
     }

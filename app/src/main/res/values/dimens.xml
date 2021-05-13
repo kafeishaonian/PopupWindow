@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="live_share_pop_width">90dp</dimen>
+    <dimen name="live_share_pop_height">live_share_pop_height</dimen>
+
+</resources>
